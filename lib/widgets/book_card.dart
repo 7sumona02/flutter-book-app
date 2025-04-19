@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class BookCard extends StatelessWidget {
   final Map<String, String> book;
 
-  const BookCard({Key? key, required this.book}) : super(key: key);
+  const BookCard({required this.book});
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:book_share/widgets/book_card.dart';  // Updated import path
+import 'package:flutter_app/widgets/book_card.dart';  // Updated import path
 import 'book_search_delegate.dart';
+import 'package:flutter_app/theme/app_colors.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -11,9 +12,19 @@ class _HomeScreenState extends State<HomeScreen> {
   String selectedCategory = 'All';
   
   final List<String> categories = ['All', 'Fiction', 'Non-fiction', 'Sci-Fi', 'Romance'];
-  final List<Map<String, String>> books = [
+    final List<Map<String, String>> books = [
     {'title': 'The Alchemist', 'author': 'Paulo Coelho', 'category': 'Fiction'},
     {'title': 'Brief History of Time', 'author': 'Stephen Hawking', 'category': 'Non-fiction'},
+    {'title': 'Dune', 'author': 'Frank Herbert', 'category': 'Sci-Fi'},
+    {'title': 'Pride and Prejudice', 'author': 'Jane Austen', 'category': 'Romance'},
+    {'title': '1984', 'author': 'George Orwell', 'category': 'Fiction'},
+    {'title': 'The Selfish Gene', 'author': 'Richard Dawkins', 'category': 'Non-fiction'},
+    {'title': 'Foundation', 'author': 'Isaac Asimov', 'category': 'Sci-Fi'},
+    {'title': 'Jane Eyre', 'author': 'Charlotte Bronte', 'category': 'Romance'},
+    {'title': 'The Hobbit', 'author': 'J.R.R. Tolkien', 'category': 'Fiction'},
+    {'title': 'Sapiens', 'author': 'Yuval Noah Harari', 'category': 'Non-fiction'},
+    {'title': 'Neuromancer', 'author': 'William Gibson', 'category': 'Sci-Fi'},
+    {'title': 'Outlander', 'author': 'Diana Gabaldon', 'category': 'Romance'}
   ];
 
   List<Map<String, String>> get filteredBooks {
@@ -55,8 +66,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Chip(
                       label: Text(category),
                       backgroundColor: selectedCategory == category 
-                          ? Colors.blue 
-                          : Colors.grey[300],
+                          ? AppColors.selectedTab 
+                          : AppColors.nonSelectedTab,
                     ),
                   ),
                 );
